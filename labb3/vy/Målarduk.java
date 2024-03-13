@@ -1,6 +1,6 @@
 package labb3.vy;
 
-import java.awt.Graphics;
+import java.awt.*;
 
 import labb3.modell.Gång;
 import labb3.modell.Nivå;
@@ -18,15 +18,23 @@ public class Målarduk extends JPanel {
 
 	private final Nivå enNivå;
 
+
 	public Målarduk(Nivå enNivå) {
 		this.enNivå = enNivå;
-		// TODO: Sätt bakgrundsfärgen på this till MARKFÄRG.
-		// TODO: Anropa metoden setFocusable på this och med argumentet true.
-		// Detta behövs för att lyssnaren i programmet ska reagera.
+		setBackground(Color.WHITE); // Set the background color. Replace WHITE with the appropriate MARKFÄRG
+		setFocusable(true); // Makes the panel capable of receiving keyboard focus
 	}
 
 	// TODO: Lätt till @Override på metoden nedan.
+	@Override
 	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+//		 g.setColor(Color.BLUE);
+//		 g.fillRect(10, 10, 100, 100);
+
+		for(Rum element : enNivå.getRumLista()) {
+			this.ritaRum(g,element);
+		}
 		// TODO Lägg till ett anrop till paintComponent i omedelbara
 		// överklassen (JPanel). Skicka med g som argument.
 
@@ -39,6 +47,10 @@ public class Målarduk extends JPanel {
 	}
 
 	private void ritaRum(Graphics g, Rum ettRum) {
+
+		g.setColor(ettRum.getGolvfärg());
+		g.fillRect(ettRum.getÖvX(),ettRum.getÖvY(),ettRum.getBredd(),ettRum.getHöjd());
+
 
 	}
 

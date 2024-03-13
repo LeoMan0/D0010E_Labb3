@@ -1,9 +1,12 @@
 package labb3.modell;
 
+import labb3.GUI;
+
 import java.util.ArrayList;
+import java.util.Observable;
 
 // TODO: Gör så att klassen Nivå ärver Observable i paketet java.util. 
-public class Nivå  {
+public class Nivå extends Observable {
 	// In Huvudprogram we design the level here is the methods
 	// In which room we start in and how we move between the rooms.
 
@@ -12,9 +15,11 @@ public class Nivå  {
 	// i vilket rum som användaren "är".
 
 	private Rum currentRum;
+	private ArrayList<Rum> rumLista;
 
 	// Nu existerar endast rummen som object i den den efterblivna arraylist rum
 	public Nivå(Rum startrum, ArrayList<Rum> rumLista) {
+		this.rumLista = rumLista;
 		// TODO: Kopiera in startrum och rum in i tillståndsvariablerna.
 		if(rumLista.contains(startrum)){
 			this.currentRum = startrum;
@@ -32,6 +37,10 @@ public class Nivå  {
 
 	// TODO: Skriv en instansmetod som returnerar alla rummen. Denna behöver
 	// Målarduk för att veta vilka rum som finns på nivån och som ska ritas ut.
+	public ArrayList<Rum> getRumLista() {
+		return rumLista;
+	}
+
 
 	// TODO Skriv en instansmetod som returnerar en referens till det rum som
 	// användaren "är i".
@@ -61,4 +70,6 @@ public class Nivå  {
 		  this.currentRum = currentRum.vartHamnarJag(väderstreck);
 
 	}
+
+
 }
