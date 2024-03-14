@@ -2,16 +2,13 @@ package labb3.modell;
 
 import labb3.verktyg.Punkt;
 
-import java.lang.reflect.Array;
 
-import static labb3.GlobalaKonstanter.GÅNGFÄRG;
-import static labb3.GlobalaKonstanter.VÄGGTJOCKLEK;
-import static labb3.verktyg.Grafik.drawThickLine;
+import static labb3.GlobalaKonstanter.*;
+
 
 public class Gång {
 
-    // TODO: Lägg till tillståndsvariabler för att hålla parametrarna till
-    // konstruktorn.
+
     private Rum från;
     private Rum till;
 
@@ -27,15 +24,14 @@ public class Gång {
         this.riktningInITill = riktningInITill;
 
 
-        // TODO: Tilldela tillståndsvariablerna parametervärdena.
-
     }
 
     public Punkt[] getPunktPairs() {
 
+        // The first two Punkts are the punkts for från and the other two for till
+
         Punkt[] PunktPairs = new Punkt[4];
 
-        Väderstreck direction = this.riktningUtUrFrån;
 
         System.arraycopy(this.punktPair(this.från, this.riktningUtUrFrån), 0, PunktPairs, 0, 2);
         System.arraycopy(this.punktPair(this.till, this.riktningInITill), 0, PunktPairs, 2, 2);
