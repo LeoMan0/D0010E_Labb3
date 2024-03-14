@@ -54,7 +54,6 @@ public class Huvudprogram {
 //		// TODO: Skapa en instans av klassen GUI och skicka med nivån ovan som
 //		// argument. Man kan ha en referensvariabel som refererar till
 //		// GUI-instansen men det är är inte nödvändigt.
-        Tangentbordslyssnare tangentbordslyssnare = new Tangentbordslyssnare(nivå);
         GUI gui = new GUI(nivå);
 
     }
